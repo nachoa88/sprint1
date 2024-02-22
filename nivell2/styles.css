@@ -35,6 +35,7 @@ body {
     flex-direction: column;
     background-image: url("img/header.jpg");
     background-size: cover;
+    background-position: center;
     background-position-y: -200px;
     /* First value is top, second left & right, third bottom */
     padding: 0 25px 0;
@@ -84,6 +85,10 @@ body {
     cursor: pointer;
     color: black;
     transform: scale(1.2);
+}
+
+.nav-item span:hover{
+    text-decoration: underline;
 }
 
 .socialmedia-container {
@@ -223,12 +228,12 @@ body {
     body {
         margin: auto 15px;
     }
-    
-    .container.one{
+
+    .container.one {
         background-position-y: -180px;
     }
 
-    .header-container{
+    .header-container {
         margin-top: 40px;
     }
 
@@ -258,6 +263,14 @@ body {
         grid-template-columns: repeat(1, 1fr);
         row-gap: 25px;
         margin-bottom: 25px;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+
+    .container.one {
+        background-size: auto 180%;
     }
 
     .menu-container {
