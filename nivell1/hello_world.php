@@ -95,7 +95,7 @@ counter(3, 15);
 // Exercici 5: Grau del estudiant
 echo "--- Exercici 5 --- \n";
 
-function grade_calculator(int $score)
+function gradeCalculator(int $score)
 {
     if ($score < 0 || $score >= 100) {
         echo "El % ha de ser entre 0 i 100\n";
@@ -114,7 +114,7 @@ function grade_calculator(int $score)
     echo "L'estudiant ha obtingut un " . $score . "%, per tant el seu grau és: " . $grade . "\n";
 }
 
-grade_calculator(33);
+gradeCalculator(33);
 
 // Exercici 6: Charlie, el mossegador
 echo "--- Exercici 6 --- \n";
