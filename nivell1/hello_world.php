@@ -53,15 +53,15 @@ echo "Double M: " . ($M * 2) . "\n";
 echo "Suma total: " . ($X + $Y + $N + $M) . "\n";
 echo "Producte total: " . ($X * $Y * $N * $M) . "\n";
 
-function calculator($num1, $num2, $function)
+function calculator($num1, $num2, string $function_name)
 {
-    if ($function == "suma") {
+    if ($function_name == "suma") {
         echo "Suma: " . $num1 . " + " . $num2 . " = " . ($num1 + $num2) . "\n";
-    } elseif ($function == "resta") {
+    } elseif ($function_name == "resta") {
         echo "Resta: " . $num1 . " - " . $num2 . " = " . ($num1 - $num2) . "\n";
-    } elseif ($function == "multiplicació") {
+    } elseif ($function_name == "multiplicació") {
         echo "Multiplicació: " . $num1 . " * " . $num2 . " = " . ($num1 * $num2) . "\n";
-    } elseif ($function == "divisió") {
+    } elseif ($function_name == "divisió") {
         echo "Divisió: " . $num1 . " / " . $num2 . " = " . ($num1 / $num2) . "\n";
     } else {
         echo "Operació no reconeguda\n";
@@ -73,21 +73,24 @@ calculator(2, 5, "multiplicació");
 // Exercici 4: Comptador
 echo "--- Exercici 4 --- \n";
 
-function counter(int $sequence, int $last_number = 10)
+function counter(int $sequence, int $final_number = 10)
 {
-    if ($sequence > $last_number) {
+    // He creat aquesta variable per poder fer la impresió dels números de més petit a més gran.
+    $print_number = $final_number;
+
+    if ($sequence > $final_number) {
         echo "El número final ha de ser més gran que la seqüència\n";
-    } else if ($sequence <= 0 || $last_number <= 0) {
+    } else if ($sequence <= 0 || $final_number <= 0) {
         echo "Els dos valors han de ser positius\n";
     }
 
-    while ($last_number >= 0) {
-        echo $last_number . "\n";
-        $last_number -= $sequence;
+    while ($final_number >= 0) {
+        echo ($print_number - $final_number) . "\n";
+        $final_number -= $sequence;
     }
 }
 
-counter(3, 10);
+counter(3, 15);
 
 // Exercici 5: Grau del estudiant
 echo "--- Exercici 5 --- \n";
@@ -107,11 +110,26 @@ function grade_calculator(int $score)
     } else {
         $grade = "L'estudiant reprovarà";
     }
-    
+
     echo "L'estudiant ha obtingut un " . $score . "%, per tant el seu grau és: " . $grade . "\n";
 }
 
 grade_calculator(33);
 
-// Exercici 6: Charlie, el gos mossegador
+// Exercici 6: Charlie, el mossegador
 echo "--- Exercici 6 --- \n";
+
+function isBitten()
+{
+    $probability = (bool)rand(0, 1);
+
+    if ($probability == true) {
+        echo "Charlie ha mossegat!\n";
+        return $probability;
+    } else {
+        echo "T'has salvat de ser mossegat pel Charlie!\n";
+        return $probability;
+    }
+}
+
+isBitten();
