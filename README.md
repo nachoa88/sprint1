@@ -13,9 +13,5 @@
 2) Càlcul de totals i subtotals de productes.
 
 ### Nivell 3
-
-Pendent:
-Tot el Nivell 3.
-
-
+1) Sedàs d'Estratòstenes, trobar nombres primers.
 
