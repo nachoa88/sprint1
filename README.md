@@ -1,4 +1,4 @@
-# Sprint 1 - Tema 3
+# Sprint 1 - Tema 3 - Arrays
 
 ### Nivell 1
 1) Print Array element per element.
