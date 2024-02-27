@@ -1,4 +1,4 @@
-# Sprint 1 - Tema 2
+# Sprint 1 - Tema 2 - PHP Bàsic
 
 ### Nivell 1
 1) Variables de cada tipus: integer, double, string i boolean i print per pantalla. 
