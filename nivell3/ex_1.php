@@ -3,7 +3,7 @@
 // Exercici 1: Sedàs d'Estratòstenes.
 echo "--- Exercici 1 --- \n";
 
-function sieveOfEratosthenes(int $n_min, int $n_max)
+function sieveOfEratosthenes(int $n_min, int $n_max): array
 {
     $primes = [];
     // Si el mínim és més petit que 2, el posem a 2 perque 2 és el primer nombre primer.
