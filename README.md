@@ -8,5 +8,5 @@
 1) Creació de classe Poker Dice, amb funcions per tirar el dau, calcular la cara que surt, etc. Utilitzant també una funció externa per crear instàncies d'aquest objecte.
 
 ### Nivell 3
-1) Pendent.
+1) Mig acabat, s'han de revisar algunes coses i averiguar si les consignes demanen funcions externes a les classes o internas.
 

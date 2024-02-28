@@ -3,29 +3,34 @@
 // Exercici 1: POO
 echo "--- Exercici 1 --- \n";
 
-class PokerDice {
+class PokerDice
+{
     private $diceFaces = ["As", "K", "Q", "J", "7", "8"];
-    // static ens permetrà sumar el total de tirades de tots els daus. 
+    // static ens permetrà sumar el total de tirades de tots els daus, fa que la variable apliqui a totes les instàncies d'una mateixa classe.
     private static $totalThrows = 0;
 
-    public function throw() {
+    public function throw()
+    {
         $lastThrow = $this->diceFaces[rand(0, 5)];
         // self:: ens permet accedir a una propietat o mètode estàtic.
         self::$totalThrows++;
         return $lastThrow;
     }
 
-    public function shapeName() {
+    public function shapeName()
+    {
         echo "The last dice throw was: " . $this->throw() . "\n";
     }
 
-    public function getTotalThrows(){
+    public function getTotalThrows()
+    {
         echo "Total throws: " . self::$totalThrows . "\n";
     }
 }
 
 // Funció per llançar molts daus alhora.
-function throwFiveDices(int $times) {
+function throwFiveDices(int $times)
+{
     // Creem un array per guardar els daus que anirem llançant. 
     $dices = [];
     // Llançem el dau les vegades que li diem en $times i creem una instància de PokerDice per vegada.
