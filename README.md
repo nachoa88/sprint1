@@ -5,7 +5,7 @@
 2) Creació de classe y subclasse per treballar herència, Shape -> Trigangle / Rectangle.
 
 ### Nivell 2
-1) Pendent.
+1) Creació de classe Poker Dice, amb funcions per tirar el dau, calcular la cara que surt, etc. Utilitzant també una funció externa per crear instàncies d'aquest objecte.
 
 ### Nivell 3
 1) Pendent.

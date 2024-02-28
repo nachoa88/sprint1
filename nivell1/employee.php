@@ -5,8 +5,8 @@ echo "--- Exercici 1 --- \n";
 
 class Employee
 {
-    public $name;
-    public $salary;
+    public string $name;
+    public int $salary;
 
     function __construct($name, $salary)
     {
@@ -37,8 +37,8 @@ echo "--- Exercici 2 --- \n";
 
 class Shape
 {
-    public $height;
-    public $width;
+    public float $height;
+    public float $width;
 
     function __construct($height, $width)
     {
@@ -49,22 +49,22 @@ class Shape
 
 class Triangle extends Shape
 {
-    private $name = "triangle";
+    private string $shapeName = "triangle";
 
-    function area()
+    public function area()
     {
-        echo "The area of this " . $this->name . " is: " . ($this->height * $this->width) / 2 .  "\n";
+        echo "The area of this " . $this->shapeName . " is: " . ($this->height * $this->width) / 2 .  "\n";
     }
 }
 
 
 class Rectangle extends Shape
 {
-    private $name = "rectangle";
+    private string $shapeName = "rectangle";
 
-    function area()
+    public function area()
     {
-        echo "The area of this " . $this->name . " is: " . ($this->height * $this->width) . "\n";
+        echo "The area of this " . $this->shapeName . " is: " . ($this->height * $this->width) . "\n";
     }
 }
 
