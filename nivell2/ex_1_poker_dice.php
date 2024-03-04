@@ -1,6 +1,6 @@
 <?php
 
-// Exercici 1: POO
+// Exercici 1: Poker Dice.
 echo "--- Exercici 1 --- \n";
 
 class PokerDice
