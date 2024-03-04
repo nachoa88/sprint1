@@ -8,4 +8,4 @@
 1) Transformar exercici Tema 4 - Nivell 1 de shapes, utilitzant una funció area() per calcular l'area.
 
 ### Nivell 3
-1) Pendent.
+1) Afegit circle class i millorat l'access a les propietats de cada shape (protected / private).

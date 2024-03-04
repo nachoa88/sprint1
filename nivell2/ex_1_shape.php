@@ -5,14 +5,14 @@ echo "--- Exercici 2 --- \n";
 
 abstract class Shape
 {
+    public float $base;
     public float $height;
-    public float $width;
     protected string $shapeName;
 
-    function __construct($height, $width)
+    function __construct($base, $height)
     {
+        $this->base = $base;
         $this->height = $height;
-        $this->width = $width;
     }
 
     abstract protected function area();
@@ -30,7 +30,7 @@ class Triangle extends Shape
 
     protected function area()
     {
-        return ($this->height * $this->width) / 2;
+        return ($this->base * $this->height) / 2;
     }
 }
 
@@ -41,7 +41,7 @@ class Rectangle extends Shape
 
     protected function area()
     {
-        return $this->height * $this->width;
+        return $this->base * $this->height;
     }
 }
 
