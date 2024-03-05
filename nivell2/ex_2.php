@@ -18,6 +18,8 @@ class OverrideMethods
 }
 
 $overrideMethod = new OverrideMethods();
+// When trying to access the private property, the __get() method will be called.
 $overrideMethod->isThisMagic;
+// When trying to set the private property, the __set() method will be called.
 $overrideMethod->isThisMagic = "'I'm really a bad developer!'";
 
