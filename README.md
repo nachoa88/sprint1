@@ -10,4 +10,4 @@
 
 ### Nivell 3
 1) Enums: creem una classe i afegim diferents característiques que requereixen l'utilització d'un enum.
-2) Pendent.
+2) Traits: creem un trait `Turbo` i una funció `boost()` per poder utilitzar aquesta funció en varies classes amb la paraula clau `use`.
