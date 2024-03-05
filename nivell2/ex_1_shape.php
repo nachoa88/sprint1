@@ -7,7 +7,6 @@ abstract class Shape
 {
     public float $base;
     public float $height;
-    protected string $shapeName;
 
     function __construct($base, $height)
     {
@@ -20,32 +19,7 @@ abstract class Shape
     public function printArea()
     {
         $area = $this->area();
-        echo "The area of this " . $this->shapeName . " is: " . $area .  "\n";
+        $className = get_class($this);
+        echo "The area of this " . $className . " is: " . $area .  "\n";
     }
 }
-
-class Triangle extends Shape
-{
-    protected string $shapeName = "triangle";
-
-    protected function area()
-    {
-        return ($this->base * $this->height) / 2;
-    }
-}
-
-
-class Rectangle extends Shape
-{
-    protected string $shapeName = "rectangle";
-
-    protected function area()
-    {
-        return $this->base * $this->height;
-    }
-}
-
-$triangle = new Triangle(2, 3);
-$triangle->printArea();
-$rectangle = new Rectangle(2, 3);
-$rectangle->printArea();
