@@ -3,42 +3,26 @@
 // Exercici 3: Operacions amb arrays array_reduce().
 echo "--- Exercici 3 --- \n";
 
-// Primer fem la funció que ens dirà si el nombre és primer o no.
-function isPrime(int $num): bool
-{
-    // Si és més petit que 2, no és primer.
-    if ($num < 2) {
-        return false;
+$arrayInt = [1, 29, 5, 2, 8, 16, 17, 21, 11, 10];
+
+// array_reduce ens permet reduir l'array a un sol valor, com a primer paràmetre es passa l'array 
+// com a segon paràmetre una funció que es cridarà per cada element de l'array, i com a tercer paràmetre el valor inicial de $carry (0).
+$sum = array_reduce($arrayInt, function ($carry, $item) {
+    // Primer mira si el nombre és més petit que 2, si ho és, no és primer.
+    if ($item < 2) {
+        // Tornem el valor acumulat que tenim fins ara sense sumar-li res.
+        return $carry;
     }
-    // Fem un loop des de 2 fins a la meitat del nombre. Si el nombre és divisible per qualsevol nombre entre 2 i la meitat del nombre, no és primer.
-    for ($i = 2; $i <= $num / 2; $i++) {
-        // Si el nombre és divisible per $i, no és primer.
-        if ($num % $i == 0) {
-            return false;
+    // Fem un loop des de 2 intentant dividir el nombre entre tots els nombres entre 2 i la meitat del nombre.
+    for ($i = 2; $i <= $item / 2; $i++) {
+        // Si alguna de les divisions és exacta, el nombre no és primer.
+        if ($item % $i == 0) {
+            // Tornem el valor acumulat sense modificar-lo.
+            return $carry;
         }
     }
-    return true;
-}
+    // Si cap de les divisions té un residu de 0, l'element actual és un nombre primer i s'afegeix a $carry.
+    return $carry + $item;
+}, 0);
 
-// Després fem la funció que fará un filter aplicant isPrime a l'array i sumarà els nombres primers.
-function sumPrimes($array): int
-{
-    // Ens assegurem que l'array estigui ordenat.
-    sort($array);
-    // array_filter ens permet eliminar els valors que no passin la funció isPrime, que donarà true si el nombre és primer.
-    $primes = array_filter($array, "isPrime");
-    // Mostrem els nombres primers que queden a l'array.
-    echo implode(", ", array_values($primes)) . "\n";
-    // array_reduce ens permet reduir l'array a un sol valor, en aquest cas, la suma dels nombres primers. Es passa l'array i una funció que es cridarà per cada element de l'array.
-    // Per cada $item de l'array, sumarà el valor a $carry, que és el valor acumulat.
-    $sum = array_reduce($primes, function($carry, $item) {
-        $carry += $item;
-        return $carry;
-    });
-
-    // Retornem l'array amb els nombres primers per si la necessitem.
-    return $sum;
-}
-
-$arrayInt = [1, 29, 5, 2, 8, 16, 17, 21, 11, 10];
-echo sumPrimes($arrayInt);
+echo "La suma dels nombres primers de l'array dona: " . $sum . "\n";

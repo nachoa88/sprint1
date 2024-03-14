@@ -16,11 +16,9 @@ $students = [
 
 function calculateAverageStudent(string $student, array $students): float
 {
-    $sum = 0;
     $grades = $students[$student];
-    foreach ($grades as $grade) {
-        $sum += $grade;
-    }
+    // array_sum: ens permet sumar tots els elements d'un array i retornar el resultat.
+    $sum = array_sum($grades);
     // count: ens permet contar la quantitat d'elements que té un array.
     return $sum / count($grades);
 }
