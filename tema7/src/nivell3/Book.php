@@ -10,13 +10,13 @@ núm. de pàgines.
 
 Class Book 
 {
-    private $title;
-    private $author;
-    private $isbn;
-    private $genre;
-    private $pages;
+    private string $title;
+    private string $author;
+    private string $isbn;
+    private string $genre;
+    private int $pages;
 
-    public function __construct($title, $author, $isbn, $genre, $pages)
+    public function __construct(string $title, string $author, string $isbn, string $genre, string $pages)
     {
         $this->title = $title;
         $this->author = $author;
@@ -55,27 +55,27 @@ Class Book
 
     // SETTERS:
     // Per modificar un llibre necessitem els setters, per ara només fem servir el títol.
-    public function setTitle($title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    public function setAuthor($author)
+    public function setAuthor(string $author): void
     {
         $this->author = $author;
     }
 
-    public function setIsbn($isbn)
+    public function setIsbn(string $isbn): void
     {
         $this->isbn = $isbn;
     }
 
-    public function setGenre($genre)
+    public function setGenre(string $genre): void
     {
         $this->genre = $genre;
     }
 
-    public function setPages($pages)
+    public function setPages(int $pages): void
     {
         $this->pages = $pages;
     }

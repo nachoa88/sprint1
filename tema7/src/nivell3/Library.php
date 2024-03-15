@@ -10,34 +10,34 @@ require_once 'Book.php';
 class Library
 {
     // Array a on guardarem els llibres
-    private $books = [];
+    private array $books = [];
 
     // Al constructor de la classe, li passem com a default un array buit, per si inicialitzem la llibreria sense llibres.
-    public function __construct($books = [])
+    public function __construct(array $books = [])
     {
         $this->books = $books;
     }
 
     // Mètode que retorna tots els llibres.
-    public function getBooks()
+    public function getBooks(): array
     {
         return $this->books;
     }
 
     // Mètode que afegeix un llibre al array books[], és a dir a la llibreria.
-    public function addBook($book)
+    public function addBook(Book $book): void
     {
         // Afegim el llibre al array books[].
         $this->books[] = $book;
     }
 
     // Mètode que esborra un llibre del array books[], és a dir de la llibreria.
-    public function deleteBook($bookToDelete)
+    public function deleteBook(Book $bookToDelete): void
     {
         // Fem un loop per cada llibre del array books[].
         foreach ($this->books as $key => $book) {
             // I per cada llibre comprovem si el isbn del llibre a esborrar és igual al isbn del llibre del array books[].
-            if ($book->getIsbn() == $bookToDelete->getIsbn()) {
+            if ($book->getIsbn() === $bookToDelete->getIsbn()) {
                 unset($this->books[$key]);
                 // Després de esborrar un llibre, reordenem el array books[] perquè no quedin claus buides.
                 $this->books = array_values($this->books);
@@ -46,12 +46,12 @@ class Library
         }
     }
 
-    public function modifyBook($bookToModify)
+    public function modifyBook(Book $bookToModify): void
     {
         // Fem un loop per cada llibre del array books[].
         foreach ($this->books as $key => $book) {
             // I per cada llibre comprovem si el isbn del llibre a modificar existeix al array books[].
-            if ($book->getIsbn() == $bookToModify->getIsbn()) {
+            if ($book->getIsbn() === $bookToModify->getIsbn()) {
                 // Si existeix, substituim el llibre del array books[] pel llibre a modificar.
                 $this->books[$key] = $bookToModify;
                 break;
@@ -74,7 +74,7 @@ class Library
         return $longBooks;
     }
 
-    public function getBookByTitle($title)
+    public function getBookByTitle(string $title): Book
     {
         // Fem un loop per cada llibre del array books[] i comprovem si el títol del llibre és igual al títol que busquem.
         foreach($this->books as $book) {
@@ -83,32 +83,40 @@ class Library
                 return $book;
             }
         }
+        // Si no el trobem, podem llençar una excepció.
+        throw new Exception("Book with title $title not found");
     }
 
-    public function getBookByGenre($genre)
+    public function getBookByGenre(string $genre): Book
     {
         foreach($this->books as $book) {
             if($book->getGenre() == $genre) {
                 return $book;
             }
         }
+
+        throw new Exception("Book with genre $genre not found");
     }
 
-    public function getBookByISBN($isbn)
+    public function getBookByISBN(string $isbn): Book
     {
         foreach($this->books as $book) {
             if($book->getIsbn() == $isbn) {
                 return $book;
             }
         }
+
+        throw new Exception("Book with ISBN $isbn not found");
     }
 
-    public function getBookByAuthor($author)
+    public function getBookByAuthor(string $author): Book
     {
         foreach($this->books as $book) {
             if($book->getAuthor() == $author) {
                 return $book;
             }
         }
+
+        throw new Exception("Book with author $author not found");
     }
 }
