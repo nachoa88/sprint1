@@ -12,6 +12,12 @@ class Library
     // Array a on guardarem els llibres
     private $books = [];
 
+    // Al constructor de la classe, li passem com a default un array buit, per si inicialitzem la llibreria sense llibres.
+    public function __construct($books = [])
+    {
+        $this->books = $books;
+    }
+
     // Mètode que retorna tots els llibres.
     public function getBooks()
     {
@@ -51,5 +57,20 @@ class Library
                 break;
             }
         }
+    }
+
+    public function getLongBooks(): array
+    {
+        // Primer creem un array per guardar els llibres que tenen més de 500 pàgines.
+        $longBooks = [];
+        // Després fem un loop per cada llibre del array books[] i mirem si té més de 500 pàgines.
+        foreach($this->books as $book) {
+            if($book->getPages() > 500) {
+                // Si té més de 500 pàgines, l'afegim al array longBooks[].
+                $longBooks[] = $book;
+            }
+        }
+
+        return $longBooks;
     }
 }
