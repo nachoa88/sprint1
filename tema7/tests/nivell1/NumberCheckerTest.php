@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 
 // No és necessari que aquesta classe sigui final, al posar-la com a final, no es podrà fer cap herència d'aquesta classe.
-final class TestNumberChecker extends TestCase
+final class NumberCheckerTest extends TestCase
 {
     /* Este test no és pot fer en aquest cas perquè el $number és private i no es pot accedir des de fora de la classe i no hi ha getter.
     public function testClassConstructor()

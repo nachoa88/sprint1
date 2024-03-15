@@ -1,13 +1,12 @@
 # Use an official PHP runtime as a parent image
-FROM php:8.2-apache
+FROM php:8.3.2-apache
 
 # Install Xdebug and Redis
-RUN pecl install redis-5.3.7 xdebug-3.2.1 \
+RUN pecl install redis xdebug \
     && docker-php-ext-enable redis xdebug
 
 # Add Xdebug configuration
 RUN echo 'xdebug.mode=debug' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo 'xdebug.client_host=172.30.66.169' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo 'xdebug.start_with_request=yes' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Copy Composer from official Composer image (latest version)

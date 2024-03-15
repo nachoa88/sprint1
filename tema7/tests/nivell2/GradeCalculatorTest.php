@@ -5,7 +5,7 @@ require 'src/nivell1/ex_5.php';
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-final class TestGradeCalculator extends TestCase
+final class GradeCalculatorTest extends TestCase
 {
     public static function providerGradeCalculator(): array
     {

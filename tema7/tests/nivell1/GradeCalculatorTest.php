@@ -4,7 +4,7 @@ require 'src/nivell1/ex_5.php';
 
 use PHPUnit\Framework\TestCase;
 
-final class TestGradeCalculator extends TestCase
+final class GradeCalculatorTest extends TestCase
 {
     public function testPrimeraDivisio()
     {

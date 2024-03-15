@@ -3,7 +3,7 @@
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-final class TestNumberChecker extends TestCase
+final class NumberCheckerTest extends TestCase
 {
     // Creem una funció que ens retorni un array amb un altre array dels valors que volem comprovar per a la funció isEven
     public static function providerIsEven(): array
