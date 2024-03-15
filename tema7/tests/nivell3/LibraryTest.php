@@ -1,4 +1,6 @@
 <?php
+require_once 'src/nivell3/Library.php';
+require_once 'src/nivell3/Book.php';
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -27,16 +29,27 @@ final class LibraryTest extends TestCase
     #[DataProvider('providerBook')]
     public function testDeleteBook($book){
         $library = new Library();
+        // Hem de crear un altre llibre different del que ens passen per paràmetre per esborrar uno i que quedi l'altre. 
+        $book2 = new Book('Romeo y Julieta', 'Shakespeare', '1234567895', 'Novel·la Policial', 200);
+        // Afegim els dos llibres al array books[].
+        $library->addBook($book);
+        $library->addBook($book2);
+        // Esborrem el llibre que ens passen per paràmetre.
         $library->deleteBook($book);
-        $this->assertEquals($library->getBooks(), []);
+        // I ens ha de quedar el book2.
+        $this->assertEquals($library->getBooks(), [$book2]);
     }
 
     #[DataProvider('providerBook')]
     public function testModifyBook($book){
         $library = new Library();
         $library->addBook($book);
-        $book->setPages(500);
-        $library->modifyBook($book);
-        $this->assertEquals($library->getBooks(), [$book]);
+        // Clonem el llibre i modifiquem per exemple el titol.
+        $modifiedBook = clone $book;
+        $modifiedBook->setTitle('Nou títol per al llibre');
+        // Modifiquem el llibre.
+        $library->modifyBook($modifiedBook);
+        // Revisem que el llibre s'hagi modificat.
+        $this->assertEquals($library->getBooks(), [$modifiedBook]);
     }
 }
