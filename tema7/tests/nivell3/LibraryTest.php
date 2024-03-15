@@ -156,7 +156,7 @@ final class LibraryTest extends TestCase
     public function testGetBookByTitle($title, $expectedBook): void
     {
         $library = new Library([$expectedBook]);
-        $this->assertEquals($expectedBook, $library->testGetBookByTitle($title));
+        $this->assertEquals($expectedBook, $library->getBookByTitle($title));
     }
 
     #[DataProvider('providerBookByGenre')]
@@ -170,7 +170,7 @@ final class LibraryTest extends TestCase
     public function testGetBookByISBN($isbn, $expectedBook): void
     {
         $library = new Library([$expectedBook]);
-        $this->assertEquals($expectedBook, $library->testGetBookByISBN($isbn));
+        $this->assertEquals($expectedBook, $library->getBookByISBN($isbn));
     }
 
     #[DataProvider('providerBookByAuthor')]

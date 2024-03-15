@@ -73,4 +73,42 @@ class Library
 
         return $longBooks;
     }
+
+    public function getBookByTitle($title)
+    {
+        // Fem un loop per cada llibre del array books[] i comprovem si el títol del llibre és igual al títol que busquem.
+        foreach($this->books as $book) {
+            if($book->getTitle() == $title) {
+                // Si el trobem, retornem el llibre.
+                return $book;
+            }
+        }
+    }
+
+    public function getBookByGenre($genre)
+    {
+        foreach($this->books as $book) {
+            if($book->getGenre() == $genre) {
+                return $book;
+            }
+        }
+    }
+
+    public function getBookByISBN($isbn)
+    {
+        foreach($this->books as $book) {
+            if($book->getIsbn() == $isbn) {
+                return $book;
+            }
+        }
+    }
+
+    public function getBookByAuthor($author)
+    {
+        foreach($this->books as $book) {
+            if($book->getAuthor() == $author) {
+                return $book;
+            }
+        }
+    }
 }
