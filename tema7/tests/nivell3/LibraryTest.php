@@ -21,15 +21,15 @@ final class LibraryTest extends TestCase
     public static function providerLibrary(): array
     {
         // Creem un array amb tots els llibres.
-        // $allBooks1 = [
-        //     new Book('El Quijote', 'Cervantes', '1234567890', 'Novel·la Policial', 1000),
-        //     new Book('El Señor de los Anillos', 'Tolkien', '1234567891', 'Fantàstic', 1500),
-        // ];
-        // // Creem un array amb els llibres que tenen més de 500 pàgines, expected result.
-        // $longBooks1 = [
-        //     new Book('El Quijote', 'Cervantes', '1234567890', 'Novel·la Policial', 1000),
-        //     new Book('El Señor de los Anillos', 'Tolkien', '1234567891', 'Fantàstic', 1500),
-        // ];
+        $allBooks1 = [
+            new Book('El Quijote', 'Cervantes', '1234567890', 'Novel·la Policial', 1000),
+            new Book('El Señor de los Anillos', 'Tolkien', '1234567891', 'Fantàstic', 1500),
+        ];
+        // Creem un array amb els llibres que tenen més de 500 pàgines, expected result.
+        $longBooks1 = [
+            new Book('El Quijote', 'Cervantes', '1234567890', 'Novel·la Policial', 1000),
+            new Book('El Señor de los Anillos', 'Tolkien', '1234567891', 'Fantàstic', 1500),
+        ];
         // Creem una segona array per fer un segon test.
         $allBooks2 = [
             new Book('El Perfume', 'Süskind', '1234567892', 'Novel·la Policial', 300),
@@ -41,7 +41,7 @@ final class LibraryTest extends TestCase
         ];
         // Tornem els parells de arrays, allBooks i longBooks(expected result).
         return [
-            // [$allBooks1, $longBooks1],
+            [$allBooks1, $longBooks1],
             [$allBooks2, $longBooks2],
         ];
     }
@@ -88,8 +88,6 @@ final class LibraryTest extends TestCase
     public function testGetLongBooks($allBooks, $expectedBooks): void
     {
         $library = new Library($allBooks);
-        var_dump($library);
-        var_dump($library->getLongBooks());
         $this->assertEqualsCanonicalizing($expectedBooks, $library->getLongBooks());
     }
 }
